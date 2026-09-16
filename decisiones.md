@@ -18,7 +18,7 @@ El cálculo de multa varía según el tipo de socio (infantil, adulto, tercera e
 
 El servicio externo (`PushRecord(jsonPayload, isoDate, originCode)`) no es modificable, usa nombres en inglés, otro formato de fecha y códigos que el dominio de la biblioteca no maneja. Si el catálogo llama directo a ese servicio, **toda la lógica de negocio queda acoplada a un vocabulario ajeno**, y cada nueva versión del servicio se propaga por todo el sistema, siendo costoso de mantener. Con Adapter se crea una única clase que traduce el contrato del dominio (p. ej. `RegistrarActualizacionDeCatalogo`) hacia el contrato externo (`PushRecord` con su formato y códigos), **aislando el cambio a un solo punto**. Strategy no aplica porque no hay variantes intercambiables de un mismo algoritmo interno, sino una **incompatibilidad de interfaces entre dos sistemas distintos**.
 
----
+
 
 # P2.3 — La conexión SOLID
 
