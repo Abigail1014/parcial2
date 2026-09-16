@@ -1,6 +1,6 @@
 # parcial2
-P2.1 — Decisiones de diseño
-Situación 1 — Notificaciones al vencer un préstamo
+P2.1  Decisiones de diseño
+Situación 1  Notificaciones al vencer un préstamo
 Patrón: Observer (Publicador/Suscriptor)
 
 El módulo de préstamos hoy conoce y llama uno por uno a cada interesado (correo, morosidad, recepción), y la dirección ya anunció que la lista seguirá creciendo ("multas municipales" y "quién sabe qué más"). Si se mantiene así, cada interesado nuevo obliga a abrir y modificar el módulo de préstamos, violando el principio de abierto/cerrado y arriesgando romper la lógica de negocio del préstamo por un cambio que no le pertenece. Con Observer, el préstamo solo emite un evento "venció sin devolución" a una lista de observadores registrados; agregar el sistema de multas es suscribir un observador nuevo, sin tocar el módulo de préstamos. Strategy no resuelve esto porque aquí no hay una única acción intercambiable, sino varias acciones independientes que deben dispararse todas ante el mismo evento.
